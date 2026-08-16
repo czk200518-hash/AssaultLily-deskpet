@@ -41,20 +41,6 @@
 - 可以在设置中自行设置、添加
 - 修改保存后**重启桌宠生效**
 
-## 目录结构
-
-```
-├── main.js              
-├── preload.js           
-├── renderer/             
-│   ├── pixi-spine.umd.min.js 
-│   ├── spine-skeleton-binary.js  
-│   ├── lines.jsonc       
-│   ├── assets-v1/       
-│   └── themes/          
-├── vendor/spine36/     
-├── tools/               
-└── build/
 
 ```
 ## 素材版权声明
