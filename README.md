@@ -55,6 +55,8 @@
 ├── vendor/spine36/     
 ├── tools/               
 └── build/
+
+
 ## 开源协议与素材版权声明
 
 - **代码**（`main.js`、`preload.js`、`renderer/*.js`、`tools/` 等）以 **GPL-3.0** 协议开源，详见根目录 [LICENSE](LICENSE)。Copyright (c) 2026 czk200518-hash。
