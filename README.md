@@ -1,4 +1,4 @@
-# 突击莉莉桌宠
+﻿# 突击莉莉桌宠
 
 使用了vibe coding
 
@@ -54,4 +54,8 @@
 │   └── themes/          
 ├── vendor/spine36/     
 ├── tools/               
-└── build/               
+└── build/
+## 开源协议与素材版权声明
+
+- **代码**（`main.js`、`preload.js`、`renderer/*.js`、`tools/` 等）以 **GPL-3.0** 协议开源，详见根目录 [LICENSE](LICENSE)。Copyright (c) 2026 czk200518-hash。
+- **角色骨骼与美术素材**（`renderer/assets-v1/`、`renderer/assets/` 中的 `.skel` / `.atlas` / `.png`）版权归原版权方（《突击莉莉》及相关权利方）所有，**不适用 GPL 授权**，仅供个人学习交流使用，请勿用于商业用途或二次分发。
