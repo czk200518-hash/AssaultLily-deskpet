@@ -1,0 +1,144 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#pet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+#pet.dragging { cursor: grabbing; }
+
+/* ---------- 舞台与画布 ---------- */
+#stage {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+/* 锚点容器:与画布逻辑尺寸一致(applyFit 设置),在窗口内底部居中。
+   气泡/调试线框都相对它定位,窗口尺寸被系统 ±1px 取整或意外变化时不会跟着漂移 */
+#stage-anchor {
+  position: relative;
+  flex-shrink: 0;
+}
+#gl {
+  display: block;
+  pointer-events: none;
+}
+
+/* ---------- 调试边界覆盖层(F9) ---------- */
+#debug-overlay {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  z-index: 25;
+  pointer-events: none;
+  overflow: hidden;
+}
+#debug-overlay.hidden { display: none; }
+#debug-canvas {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+}
+#debug-info {
+  position: absolute;
+  right: 8px; top: 8px;
+  background: rgba(18, 10, 38, 0.88);
+  color: #cdd8f0;
+  font: 11px/1.7 "Consolas", "Microsoft YaHei", monospace;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(130, 200, 255, 0.45);
+  white-space: pre-line;
+  max-width: 320px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+#debug-info b { color: #9fe3ff; }
+#debug-info .hit { color: #ffe45c; }
+#debug-info .miss { color: #ff9c9c; }
+
+/* ---------- 对话气泡 ---------- */
+/* 气泡底部(小尾巴)锚定在固定位置,发言变长时气泡向上生长,
+   尾巴始终指向角色头顶,不会随内容下移 */
+#bubble-wrap {
+  position: absolute;
+  left: 50%;
+  top: 56px; /* 气泡底边(尾巴)位置 —— 初始占位,实际由 applyFit 按角色缩放动态设置 */
+  transform: translateX(-50%) translateY(-100%);
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+#bubble-wrap.show { opacity: 1; transform: translateX(-50%) translateY(-100%) translateY(6px); }
+#bubble {
+  position: relative;
+  background: rgba(255, 255, 255, 0.96);
+  color: #4a3f6b;
+  border: 2px solid #c9b8f0;
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  /* 尺寸完全自适应发言内容:短句宽度贴合文字,长句顶到上限后自动换行,高度随内容展开 */
+  width: max-content;
+  max-width: calc(100vw - 28px); /* 最长不超过窗口宽度(左右各留 14px 边距) */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;     /* 长单词/URL 也能断行 */
+  box-shadow: 0 4px 14px rgba(80, 50, 140, 0.25);
+  animation: bubble-pop 0.3s ease;
+}
+#bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.96);
+}
+@keyframes bubble-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  80% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- 加载 ---------- */
+#loading {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  background: rgba(30, 20, 50, 0.35);
+  border-radius: 16px;
+}
+#loading.hidden { display: none; }
+.loading-text {
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(120, 80, 200, 0.8);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}

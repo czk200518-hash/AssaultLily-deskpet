@@ -1,0 +1,49 @@
+/* 独立记数窗口:单行卡片「周期标签 + 击键数字」,固定字号,任意分辨率清晰
+   颜色走 CSS 变量(默认 = 原版深紫樱粉),主题 CSS 覆盖变量即换肤 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --counter-bg: rgba(22, 13, 44, 0.94);
+  --counter-border: rgba(175, 145, 240, 0.55);
+  --counter-label: #b7a8e8;
+  --counter-value: #ffffff;
+  --counter-radius: 10px;
+  --counter-font: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: var(--counter-font);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#counter {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 12px 6px;
+  background: var(--counter-bg);
+  border: 1px solid var(--counter-border);
+  border-radius: var(--counter-radius);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  width: max-content;
+}
+
+#label {
+  font-size: 14px;
+  color: var(--counter-label);
+  line-height: 1.4;
+}
+
+#value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--counter-value);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}

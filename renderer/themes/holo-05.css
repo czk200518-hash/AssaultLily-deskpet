@@ -1,0 +1,107 @@
+/* ============================================================
+   05 未来全息·CHARM OS (HOLO-05) — 纯视觉皮肤
+   设计:主题UI设计方案.md §2.05
+   作用范围:右键功能菜单窗口 + 左下方记数模块(角色窗口不参与)
+   几何锁定:只修改颜色/背景/圆角/阴影/动画,不动字体度量与任何尺寸。
+   材质:全息玻璃 / 数据流 / 蓝紫渐变
+   ============================================================ */
+:root {
+  --bg-card: rgba(16, 24, 45, 0.9);
+  --bg-soft: rgba(125, 249, 255, 0.05);
+  --bg-hover: rgba(125, 249, 255, 0.12);
+  --bg-press: rgba(125, 249, 255, 0.18);
+  --line: rgba(125, 249, 255, 0.3);
+  --primary: #7DF9FF;
+  --primary-deep: #4FC8D8;
+  --accent: #7DF9FF;
+  --accent-deep: #A97BFF;
+  --text: #EAF6FF;
+  --text-dim: #8FA3C8;
+  --text-faint: #5D7299;
+  --danger: #FF7A7A;
+  --radius: 16px;
+
+  --counter-bg: rgba(16, 24, 45, 0.9);
+  --counter-border: rgba(125, 249, 255, 0.5);
+  --counter-label: #8FA3C8;
+  --counter-value: #7DF9FF;
+  --counter-radius: 12px;
+}
+
+/* ================= 菜单皮肤(全息终端) ================= */
+#menu {
+  background: linear-gradient(160deg, rgba(24, 34, 64, 0.92), rgba(13, 17, 32, 0.94));
+  border-color: rgba(125, 249, 255, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 0 24px rgba(125, 249, 255, 0.12);
+  color: #EAF6FF;
+}
+.menu-title { color: #7DF9FF; text-shadow: 0 0 8px rgba(125, 249, 255, 0.4); }
+.icon-btn { background: rgba(125, 249, 255, 0.08); color: #8FA3C8; }
+.icon-btn:hover { background: rgba(125, 249, 255, 0.2); color: #EAF6FF; }
+.menu-item { color: #EAF6FF; }
+.menu-item:hover { background: rgba(125, 249, 255, 0.1); }
+.menu-item:active { background: rgba(125, 249, 255, 0.16); }
+.item-icon {
+  background: linear-gradient(145deg, rgba(125, 249, 255, 0.12), rgba(169, 123, 255, 0.1));
+  box-shadow: inset 0 0 0 1px rgba(125, 249, 255, 0.25);
+}
+.item-desc, .item-chev, .anim-en, .anim-row .dur, .status-item { color: #8FA3C8; }
+.menu-item.danger .item-label { color: #FF7A7A; }
+.menu-item.danger:hover { background: rgba(255, 122, 122, 0.14); }
+.menu-sep { background: linear-gradient(90deg, transparent, rgba(125, 249, 255, 0.4), transparent); }
+.panel-head { color: #7DF9FF; }
+.panel-head .ph-line { background: linear-gradient(90deg, rgba(125, 249, 255, 0.5), transparent); }
+.chip {
+  color: #A9DCE8;
+  background: rgba(125, 249, 255, 0.05);
+  border-color: rgba(125, 249, 255, 0.25);
+}
+.chip:hover { background: rgba(125, 249, 255, 0.13); color: #EAF6FF; }
+.chip.active {
+  background: linear-gradient(135deg, #4FC8D8, #A97BFF);
+  color: #0D1120;
+  border-color: #7DF9FF;
+  box-shadow: 0 0 12px rgba(125, 249, 255, 0.5);
+}
+.search input { background: rgba(125, 249, 255, 0.05); color: #EAF6FF; border-color: rgba(125, 249, 255, 0.25); }
+.search input:focus { border-color: #7DF9FF; }
+.search input::placeholder { color: #5D7299; }
+.search .s-ico { color: #5D7299; }
+.anim-row { color: #EAF6FF; }
+.anim-row:hover { background: rgba(125, 249, 255, 0.09); }
+.opt-row:hover { background: rgba(125, 249, 255, 0.07); }
+.opt-label { color: #EAF6FF; }
+.opt-desc { color: #8FA3C8; }
+.switch { background: rgba(125, 249, 255, 0.15); }
+.switch::after { background: linear-gradient(180deg, #EAF6FF, #A9DCE8); }
+.switch.on { background: linear-gradient(135deg, #4FC8D8, #A97BFF); }
+.seg-btn { color: #A9DCE8; background: rgba(125, 249, 255, 0.05); border-color: rgba(125, 249, 255, 0.22); }
+.seg-btn:hover { background: rgba(125, 249, 255, 0.12); color: #EAF6FF; }
+.seg-btn.active {
+  background: linear-gradient(135deg, #4FC8D8, #A97BFF);
+  color: #0D1120;
+  border-color: #7DF9FF;
+}
+.menu-footer { border-top-color: rgba(125, 249, 255, 0.2); }
+.status-item { background: rgba(125, 249, 255, 0.07); }
+.status-item b { color: #7DF9FF; }
+::-webkit-scrollbar-thumb { background: rgba(125, 249, 255, 0.3); }
+::-webkit-scrollbar-thumb:hover { background: rgba(125, 249, 255, 0.5); }
+.theme-tip { color: #5D7299; }
+
+/* ================= 记数模块皮肤(全息小窗) ================= */
+#counter { box-shadow: 0 0 12px rgba(125, 249, 255, 0.2); }
+#value { text-shadow: 0 0 8px rgba(125, 249, 255, 0.5); }
+
+/* ================= 动效(完整档) ================= */
+body.motion-full #menu.open { animation: holo-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes holo-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+body.motion-full #menu-title { animation: holo-glow 2.4s ease-in-out infinite; }
+@keyframes holo-glow {
+  0%, 100% { opacity: 0.88; text-shadow: 0 0 8px rgba(125, 249, 255, 0.4); }
+  50% { opacity: 1; text-shadow: 0 0 14px rgba(125, 249, 255, 0.7); }
+}

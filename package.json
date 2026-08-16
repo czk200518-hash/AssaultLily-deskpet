@@ -1,0 +1,95 @@
+{
+  "dependencies": {
+    "pixi-spine": "^3.0.3",
+    "pixi.js": "^5.1.3"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.6",
+    "electron": "^35.7.5",
+    "electron-builder": "^26.15.3",
+    "png-to-ico": "^3.0.2",
+    "ws": "^8.21.3"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "debug:idle": "electron . --debug-shot idle",
+    "debug:menu": "electron . --debug-shot menu",
+    "debug:menutest": "electron . --debug-shot menutest",
+    "debug:scenetest": "electron . --debug-shot scenetest",
+    "debug:walk": "electron . --debug-shot walk",
+    "debug:react": "electron . --debug-shot react",
+    "debug:sleep": "electron . --debug-shot sleep",
+    "debug:attack": "electron . --debug-shot attack",
+    "debug:talk": "electron . --debug-shot talk",
+    "debug:emotion": "electron . --debug-shot emotion",
+    "debug:motion": "electron . --debug-shot motion",
+    "debug:bounds": "electron . --debug-shot bounds",
+    "debug:outline": "electron . --debug-shot outline",
+    "debug:outlinetest": "electron . --debug-shot outlinetest",
+    "debug:through": "electron . --debug-shot throughtest",
+    "debug:dragbounds": "electron . --debug-shot dragbounds",
+    "inspect": "node tools/inspect-skel.cjs",
+    "render-test": "node tools/render-test.cjs",
+    "pack": "electron-builder --win nsis",
+    "pack:dir": "electron-builder --win dir"
+  },
+  "name": "lily-pet",
+  "productName": "突击莉莉桌宠",
+  "description": "突击莉莉桌宠 - Spine 桌面宠物",
+  "author": "LilyPet",
+  "version": "1.0.0",
+  "build": {
+    "appId": "com.lilypet.desktop",
+    "productName": "突击莉莉桌宠",
+    "asar": true,
+    "compression": "normal",
+    "electronDist": "node_modules/electron/dist",
+    "directories": {
+      "output": "../打包",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "!renderer/lines.bak-*",
+      "!renderer/debug.log",
+      "!renderer/assets/CharacterJobSpine_01*",
+      "!renderer/assets/fit.json",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "tools/sensor.ps1",
+        "to": "tools/sensor.ps1"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "突击莉莉桌宠-安装程序-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "突击莉莉桌宠",
+      "uninstallDisplayName": "突击莉莉桌宠",
+      "language": "2052",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "artifactName": "突击莉莉桌宠-安装程序-${version}.${ext}"
+    }
+  }
+}

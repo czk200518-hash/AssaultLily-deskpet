@@ -1,0 +1,13 @@
+# Node 依赖
+node_modules/
+
+# 日志与调试截图
+debug.log
+renderer/debug.log
+*.log
+debug-*.png
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store

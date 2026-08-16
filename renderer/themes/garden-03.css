@@ -1,0 +1,103 @@
+/* ============================================================
+   03 花园温室·Lily Garden (GARDEN-03) — 纯视觉皮肤
+   设计:主题UI设计方案.md §2.03
+   作用范围:右键功能菜单窗口 + 左下方记数模块(角色窗口不参与)
+   几何锁定:只修改颜色/背景/圆角/阴影/动画,不动字体度量与任何尺寸。
+   材质:木框温室 / 水彩绿 / 花瓣粉
+   ============================================================ */
+:root {
+  --bg-card: rgba(253, 252, 248, 0.97);
+  --bg-soft: rgba(107, 143, 94, 0.06);
+  --bg-hover: rgba(168, 197, 163, 0.22);
+  --bg-press: rgba(168, 197, 163, 0.32);
+  --line: rgba(168, 197, 163, 0.55);
+  --primary: #6B8F5E;
+  --primary-deep: #4F7350;
+  --accent: #6B8F5E;
+  --accent-deep: #F7C6C6;
+  --text: #3E4A3A;
+  --text-dim: #7A8A72;
+  --text-faint: #9BAE94;
+  --danger: #C98D6B;
+  --radius: 16px;
+
+  --counter-bg: rgba(253, 252, 248, 0.96);
+  --counter-border: rgba(107, 143, 94, 0.7);
+  --counter-label: #6B8F5E;
+  --counter-value: #3E4A3A;
+  --counter-radius: 12px;
+}
+
+/* ================= 菜单皮肤(温室手账) ================= */
+#menu {
+  background:
+    radial-gradient(120% 80% at 90% -10%, rgba(247, 198, 198, 0.25), transparent 55%),
+    linear-gradient(180deg, rgba(253, 252, 248, 0.97), rgba(244, 248, 240, 0.97));
+  border-color: #A8C5A3;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(107, 143, 94, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: #3E4A3A;
+}
+.menu-title { color: #4F7350; text-shadow: none; }
+.icon-btn { background: rgba(168, 197, 163, 0.3); color: #5A6B50; }
+.icon-btn:hover { background: rgba(168, 197, 163, 0.55); color: #3E4A3A; }
+.menu-item { color: #3E4A3A; }
+.menu-item:hover { background: rgba(168, 197, 163, 0.22); }
+.menu-item:active { background: rgba(168, 197, 163, 0.32); }
+.item-icon {
+  background: linear-gradient(145deg, rgba(168, 197, 163, 0.4), rgba(247, 198, 198, 0.25));
+  box-shadow: inset 0 0 0 1px rgba(107, 143, 94, 0.25);
+}
+.item-desc, .item-chev, .anim-en, .anim-row .dur, .status-item { color: #7A8A72; }
+.menu-item.danger .item-label { color: #C98D6B; }
+.menu-item.danger:hover { background: rgba(201, 141, 107, 0.16); }
+.menu-sep { background: linear-gradient(90deg, transparent, rgba(168, 197, 163, 0.6), transparent); }
+.panel-head { color: #4F7350; }
+.panel-head .ph-line { background: linear-gradient(90deg, rgba(168, 197, 163, 0.7), transparent); }
+.chip {
+  color: #5A6B50;
+  background: rgba(168, 197, 163, 0.14);
+  border-color: rgba(107, 143, 94, 0.45);
+}
+.chip:hover { background: rgba(168, 197, 163, 0.3); color: #3E4A3A; }
+.chip.active {
+  background: linear-gradient(135deg, #6B8F5E, #4F7350);
+  color: #FFF;
+  border-color: #4F7350;
+  box-shadow: 0 2px 8px rgba(107, 143, 94, 0.5);
+}
+.search input { background: rgba(168, 197, 163, 0.15); color: #3E4A3A; border-color: rgba(107, 143, 94, 0.4); }
+.search input:focus { border-color: #6B8F5E; background: rgba(255, 255, 255, 0.75); }
+.search input::placeholder { color: #9BAE94; }
+.search .s-ico { color: #9BAE94; }
+.anim-row { color: #3E4A3A; }
+.anim-row:hover { background: rgba(168, 197, 163, 0.2); }
+.opt-row:hover { background: rgba(168, 197, 163, 0.14); }
+.opt-label { color: #3E4A3A; }
+.opt-desc { color: #7A8A72; }
+.switch { background: rgba(107, 143, 94, 0.25); }
+.switch::after { background: linear-gradient(180deg, #fff, #F4F8F0); }
+.switch.on { background: linear-gradient(135deg, #6B8F5E, #4F7350); }
+.seg-btn { color: #5A6B50; background: rgba(168, 197, 163, 0.16); border-color: rgba(107, 143, 94, 0.4); }
+.seg-btn:hover { background: rgba(168, 197, 163, 0.3); color: #3E4A3A; }
+.seg-btn.active {
+  background: linear-gradient(135deg, #6B8F5E, #4F7350);
+  color: #FFF;
+  border-color: #4F7350;
+}
+.menu-footer { border-top-color: rgba(168, 197, 163, 0.5); }
+.status-item { background: rgba(168, 197, 163, 0.2); }
+.status-item b { color: #4F7350; }
+::-webkit-scrollbar-thumb { background: rgba(107, 143, 94, 0.4); }
+::-webkit-scrollbar-thumb:hover { background: rgba(107, 143, 94, 0.6); }
+.theme-tip { color: #7A8A72; }
+
+/* ================= 记数模块皮肤(木牌小卡) ================= */
+#counter { box-shadow: 0 3px 10px rgba(107, 143, 94, 0.3); }
+
+/* ================= 动效(完整档) ================= */
+body.motion-full #menu.open { animation: tag-in 0.22s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes tag-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}

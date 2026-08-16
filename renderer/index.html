@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="pet">
+  <!-- 角色舞台:锚点容器与画布同尺寸(applyFit 设置)并底部居中,
+       对话气泡与调试线框都相对它定位 → 窗口尺寸被系统 ±1px 取整时也不会漂移 -->
+  <div id="stage">
+    <div id="stage-anchor">
+      <!-- 对话气泡 -->
+      <div id="bubble-wrap">
+        <div id="bubble"><span id="bubble-text"></span></div>
+      </div>
+
+      <!-- 调试边界覆盖层(F9 切换) -->
+      <div id="debug-overlay" class="hidden">
+        <canvas id="debug-canvas"></canvas>
+        <div id="debug-info"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 加载中 -->
+  <div id="loading"><div class="loading-text">梨璃 正在醒来…</div></div>
+</div>
+
+<script src="../node_modules/pixi.js/dist/pixi.min.js"></script>
+<script src="pixi-spine.umd.min.js"></script>
+<script>var spine = {};</script>
+<script src="spine-skeleton-binary.js"></script>
+<script src="renderer.js"></script>
+</body>
+</html>

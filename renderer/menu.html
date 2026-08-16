@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>梨璃菜单</title>
+<link rel="stylesheet" href="menu.css">
+</head>
+<body>
+<div id="menu">
+  <!-- 头部:返回 + 标题 + 关闭 -->
+  <div class="menu-header">
+    <button id="btn-back" class="icon-btn hidden" title="返回上一级" aria-label="返回">‹</button>
+    <div id="menu-title" class="menu-title">🍀 梨璃的功能菜单</div>
+    <button id="btn-close" class="icon-btn" title="关闭菜单" aria-label="关闭">✕</button>
+  </div>
+  <!-- 视图区:主菜单 / 二级列表 / 功能面板 由 menu.js 渲染 -->
+  <div id="menu-view" class="menu-view"></div>
+  <!-- 底部状态栏 -->
+  <div class="menu-footer">
+    <span class="status-item" id="status-emotion">表情 —</span>
+    <span class="status-item" id="status-anim">动画 —</span>
+  </div>
+</div>
+<script src="scene-editor.js"></script>
+<script src="scene-panel.js"></script>
+<script src="menu.js"></script>
+</body>
+</html>

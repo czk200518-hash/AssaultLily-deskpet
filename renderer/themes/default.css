@@ -1,0 +1,31 @@
+/* ============================================================
+   默认·樱色 (default)
+   保持原版外观:菜单 = menu.css 深紫毛玻璃卡片;记数 = counter.css 深紫卡片
+   本文件只重新声明 token(与原版同值),让其他主题的书写口径一致。
+   主题作用范围:右键功能菜单窗口 + 左下方记数模块(角色窗口不参与)。
+   ============================================================ */
+:root {
+  /* ---- 菜单 token(与 menu.css 原版一致) ---- */
+  --bg-card: rgba(48, 34, 82, 0.93);
+  --bg-soft: rgba(255, 255, 255, 0.07);
+  --bg-hover: rgba(255, 255, 255, 0.13);
+  --bg-press: rgba(255, 255, 255, 0.1);
+  --line: rgba(255, 255, 255, 0.14);
+  --primary: #a78bfa;
+  --primary-deep: #8b5cf6;
+  --accent: #ffb7d9;
+  --accent-deep: #f472b6;
+  --text: #f3edff;
+  --text-dim: #b6a5e2;
+  --text-faint: #8f7fc0;
+  --danger: #ff9d9d;
+  --radius: 18px;
+
+  /* ---- 记数模块 token(与 counter.css 原版一致) ---- */
+  --counter-bg: rgba(22, 13, 44, 0.94);
+  --counter-border: rgba(175, 145, 240, 0.55);
+  --counter-label: #b7a8e8;
+  --counter-value: #ffffff;
+  --counter-radius: 10px;
+  --counter-font: "Microsoft YaHei", "PingFang SC", sans-serif;
+}

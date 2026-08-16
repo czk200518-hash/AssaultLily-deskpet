@@ -1,0 +1,103 @@
+/* ============================================================
+   02 战术指挥·CHARM 整备 (TACTICAL-02) — 纯视觉皮肤
+   设计:主题UI设计方案.md §2.02
+   作用范围:右键功能菜单窗口 + 左下方记数模块(角色窗口不参与)
+   几何锁定:只修改颜色/背景/圆角/阴影/动画,不动字体度量与任何尺寸。
+   材质:战术终端 / 扫描线 / 荧光青 / 警报橙
+   ============================================================ */
+:root {
+  --bg-card: rgba(11, 18, 25, 0.92);
+  --bg-soft: rgba(87, 242, 195, 0.05);
+  --bg-hover: rgba(87, 242, 195, 0.13);
+  --bg-press: rgba(87, 242, 195, 0.2);
+  --line: rgba(87, 242, 195, 0.3);
+  --primary: #57F2C3;
+  --primary-deep: #2FBFA0;
+  --accent: #57F2C3;
+  --accent-deep: #FF5A3C;
+  --text: #E6F2EF;
+  --text-dim: #7C93A3;
+  --text-faint: #56707F;
+  --danger: #FF5A3C;
+  --radius: 8px;
+
+  --counter-bg: rgba(11, 18, 25, 0.94);
+  --counter-border: rgba(87, 242, 195, 0.55);
+  --counter-label: #57F2C3;
+  --counter-value: #E6F2EF;
+  --counter-radius: 2px;
+}
+
+/* ================= 菜单皮肤(战术终端) ================= */
+#menu {
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, rgba(11, 18, 25, 0.96), rgba(13, 22, 31, 0.96));
+  border-color: rgba(87, 242, 195, 0.35);
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(87, 242, 195, 0.1);
+  color: #E6F2EF;
+}
+.menu-title { color: #57F2C3; text-shadow: 0 0 8px rgba(87, 242, 195, 0.4); }
+.icon-btn { background: rgba(87, 242, 195, 0.1); color: #7C93A3; }
+.icon-btn:hover { background: rgba(87, 242, 195, 0.22); color: #E6F2EF; }
+.menu-item { color: #E6F2EF; }
+.menu-item:hover { background: rgba(87, 242, 195, 0.13); }
+.menu-item:active { background: rgba(87, 242, 195, 0.2); }
+.item-icon {
+  background: linear-gradient(145deg, rgba(87, 242, 195, 0.14), rgba(31, 58, 77, 0.4));
+  box-shadow: inset 0 0 0 1px rgba(87, 242, 195, 0.3);
+}
+.item-desc, .item-chev, .anim-en, .anim-row .dur, .status-item { color: #7C93A3; }
+.menu-item.danger .item-label { color: #FF5A3C; }
+.menu-item.danger:hover { background: rgba(255, 90, 60, 0.16); }
+.menu-sep { background: linear-gradient(90deg, transparent, rgba(87, 242, 195, 0.4), transparent); }
+.panel-head { color: #57F2C3; }
+.panel-head .ph-line { background: linear-gradient(90deg, rgba(87, 242, 195, 0.5), transparent); }
+.chip {
+  color: #A9C6C0;
+  background: rgba(87, 242, 195, 0.06);
+  border-color: rgba(87, 242, 195, 0.3);
+}
+.chip:hover { background: rgba(87, 242, 195, 0.15); color: #E6F2EF; }
+.chip.active {
+  background: linear-gradient(135deg, #2FBFA0, #57F2C3);
+  color: #0B1219;
+  border-color: #57F2C3;
+  box-shadow: 0 0 10px rgba(87, 242, 195, 0.5);
+}
+.search input { background: rgba(87, 242, 195, 0.05); color: #E6F2EF; border-color: rgba(87, 242, 195, 0.3); }
+.search input:focus { border-color: #57F2C3; }
+.search input::placeholder { color: #56707F; }
+.search .s-ico { color: #56707F; }
+.anim-row { color: #E6F2EF; }
+.anim-row:hover { background: rgba(87, 242, 195, 0.1); }
+.opt-row:hover { background: rgba(87, 242, 195, 0.08); }
+.opt-label { color: #E6F2EF; }
+.opt-desc { color: #7C93A3; }
+.switch { background: rgba(87, 242, 195, 0.16); }
+.switch::after { background: linear-gradient(180deg, #E6F2EF, #A9C6C0); }
+.switch.on { background: linear-gradient(135deg, #2FBFA0, #57F2C3); }
+.seg-btn { color: #A9C6C0; background: rgba(87, 242, 195, 0.05); border-color: rgba(87, 242, 195, 0.25); }
+.seg-btn:hover { background: rgba(87, 242, 195, 0.13); color: #E6F2EF; }
+.seg-btn.active {
+  background: linear-gradient(135deg, #2FBFA0, #57F2C3);
+  color: #0B1219;
+  border-color: #57F2C3;
+}
+.menu-footer { border-top-color: rgba(87, 242, 195, 0.25); }
+.status-item { background: rgba(87, 242, 195, 0.08); }
+.status-item b { color: #57F2C3; }
+::-webkit-scrollbar-thumb { background: rgba(87, 242, 195, 0.35); }
+::-webkit-scrollbar-thumb:hover { background: rgba(87, 242, 195, 0.55); }
+.theme-tip { color: #56707F; }
+
+/* ================= 记数模块皮肤(荧光青小窗) ================= */
+#counter { box-shadow: 0 0 10px rgba(87, 242, 195, 0.2); }
+
+/* ================= 动效(完整档) ================= */
+body.motion-full #menu.open { animation: comm-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes comm-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}

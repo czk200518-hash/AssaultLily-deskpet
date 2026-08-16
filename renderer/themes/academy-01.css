@@ -1,0 +1,105 @@
+/* ============================================================
+   01 古典学院·秘典 (ACADEMY-01) — 纯视觉皮肤
+   设计:主题UI设计方案.md §2.01
+   作用范围:右键功能菜单窗口 + 左下方记数模块(角色窗口不参与)
+   几何锁定:本文件只修改颜色/背景/圆角/阴影/动画等纯视觉属性,
+   不改字体度量/字号/字重/字距/边框宽度/尺寸/间距 ——
+   任何主题下组件尺寸、行数、间距、窗口大小都与默认主题完全一致。
+   材质:羊皮纸 / 墨绿皮革 / 烫金 / 火漆
+   ============================================================ */
+:root {
+  /* ---- 菜单 token ---- */
+  --bg-card: rgba(31, 61, 43, 0.96);
+  --bg-soft: rgba(255, 255, 255, 0.05);
+  --bg-hover: rgba(201, 169, 106, 0.18);
+  --bg-press: rgba(201, 169, 106, 0.26);
+  --line: rgba(201, 169, 106, 0.35);
+  --primary: #C9A96A;
+  --primary-deep: #A98A4A;
+  --accent: #C9A96A;
+  --accent-deep: #7A1F2B;
+  --text: #F4EFE3;
+  --text-dim: #C9BCA0;
+  --text-faint: #9A8C6F;
+  --danger: #7A1F2B;
+  --radius: 10px;
+
+  /* ---- 记数模块 token(不含字体:字体锁定默认,保证窗口尺寸不变) ---- */
+  --counter-bg: rgba(31, 61, 43, 0.95);
+  --counter-border: rgba(201, 169, 106, 0.75);
+  --counter-label: #C9A96A;
+  --counter-value: #F4EFE3;
+  --counter-radius: 6px;
+}
+
+/* ================= 菜单皮肤(羊皮纸 + 烫金) ================= */
+#menu {
+  background: linear-gradient(180deg, rgba(250, 246, 236, 0.97), rgba(239, 230, 210, 0.97));
+  border-color: #C9A96A;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(31, 61, 43, 0.35), 0 2px 5px rgba(31, 61, 43, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  color: #2B2118;
+}
+.menu-title { color: #7A1F2B; text-shadow: none; }
+.icon-btn { background: rgba(201, 169, 106, 0.25); color: #6E5A45; }
+.icon-btn:hover { background: rgba(201, 169, 106, 0.45); color: #2B2118; }
+.menu-item { color: #2B2118; }
+.menu-item:hover { background: rgba(201, 169, 106, 0.22); }
+.menu-item:active { background: rgba(201, 169, 106, 0.32); }
+.item-icon {
+  background: linear-gradient(145deg, rgba(201, 169, 106, 0.3), rgba(122, 31, 43, 0.14));
+  box-shadow: inset 0 0 0 1px rgba(201, 169, 106, 0.45);
+}
+.item-desc, .item-chev, .anim-en, .anim-row .dur, .status-item { color: #6E5A45; }
+.menu-item.danger .item-label { color: #7A1F2B; }
+.menu-item.danger:hover { background: rgba(122, 31, 43, 0.14); }
+.menu-sep { background: linear-gradient(90deg, transparent, rgba(201, 169, 106, 0.55), transparent); }
+.panel-head { color: #7A1F2B; }
+.panel-head .ph-line { background: linear-gradient(90deg, rgba(201, 169, 106, 0.6), transparent); }
+.chip {
+  color: #5A4A33;
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(201, 169, 106, 0.7);
+}
+.chip:hover { background: rgba(201, 169, 106, 0.28); color: #2B2118; }
+.chip.active {
+  background: linear-gradient(135deg, #7A1F2B, #9A2F3D);
+  color: #F4EFE3;
+  border-color: #7A1F2B;
+  box-shadow: 0 2px 8px rgba(122, 31, 43, 0.45);
+}
+.search input { background: rgba(255, 255, 255, 0.55); color: #2B2118; border-color: rgba(201, 169, 106, 0.6); }
+.search input:focus { border-color: #C9A96A; background: rgba(255, 255, 255, 0.85); }
+.search input::placeholder { color: #9A8C6F; }
+.search .s-ico { color: #9A8C6F; }
+.anim-row { color: #2B2118; }
+.anim-row:hover { background: rgba(201, 169, 106, 0.2); }
+.opt-row:hover { background: rgba(201, 169, 106, 0.14); }
+.opt-label { color: #2B2118; }
+.opt-desc { color: #8A7A60; }
+.switch { background: rgba(31, 61, 43, 0.22); }
+.switch::after { background: linear-gradient(180deg, #fff, #EFE6D2); }
+.switch.on { background: linear-gradient(135deg, #1F3D2B, #2A4A34); }
+.seg-btn { color: #5A4A33; background: rgba(255, 255, 255, 0.35); border-color: rgba(201, 169, 106, 0.5); }
+.seg-btn:hover { background: rgba(201, 169, 106, 0.25); color: #2B2118; }
+.seg-btn.active {
+  background: linear-gradient(135deg, #1F3D2B, #2A4A34);
+  color: #F4EFE3;
+  border-color: #1F3D2B;
+}
+.menu-footer { border-top-color: rgba(201, 169, 106, 0.45); }
+.status-item { background: rgba(201, 169, 106, 0.18); }
+.status-item b { color: #7A1F2B; }
+::-webkit-scrollbar-thumb { background: rgba(122, 31, 43, 0.4); }
+::-webkit-scrollbar-thumb:hover { background: rgba(122, 31, 43, 0.6); }
+.theme-tip { color: #8A7A60; }
+
+/* ================= 记数模块皮肤(火漆墨绿) ================= */
+#counter { box-shadow: 0 3px 10px rgba(31, 61, 43, 0.35); }
+
+/* ================= 动效(完整档,仅 transform/opacity) ================= */
+body.motion-full #menu.open { animation: seal-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes seal-in {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}

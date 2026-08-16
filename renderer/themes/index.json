@@ -1,0 +1,8 @@
+[
+  { "id": "default", "name": "深紫", "preview": "#8b5cf6", "layout": "default" },
+  { "id": "academy-01", "name": "古典", "preview": "#1F3D2B", "layout": "book" },
+  { "id": "tactical-02", "name": "科技", "preview": "#57F2C3", "layout": "hud" },
+  { "id": "garden-03", "name": "花园","preview": "#6B8F5E", "layout": "frame" },
+  { "id": "holo-05", "name": "未来", "preview": "#7DF9FF", "layout": "glass" },
+  { "id": "taisho-06", "name": "樱花", "preview": "#C8453C", "layout": "frame" }
+]
